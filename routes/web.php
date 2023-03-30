@@ -17,9 +17,19 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/', [App\Http\Controllers\PrincipalController::class, 'principal']);
+Route::get('/', [App\Http\Controllers\PrincipalController::class, 'principal'])->name('site.index');
 
-Route::get('/sobre', [App\Http\Controllers\SobreController::class, 'sobre']);
+Route::get('/sobre', [App\Http\Controllers\SobreController::class, 'sobre'])->name('site.sobre');
+
+Route::get('/contato', function () {
+    return redirect()->route('site.sobre');
+})->name('site.contato');
+
+//Route::redirect('/contato', '/sobre');
+
+Route::fallback(function () {
+    return 'A rota acessada não existe. <a href="'.route('site.index').'">Clique aqui</a> para ir para página inicial';
+});
 
 Route::get('sobre/{nome}', function (string $nome) {
     return "Olá, $nome".'!';
@@ -30,3 +40,22 @@ Route::get('sobre/{nome}/{sobrenome}/{idade?}', function (string $nome, string $
 }) ->where('nome', '[A-Za-z]+')
   ->where('sobrenome', '[A-Za-z]+')
   ->where('idade', '[0-9]+');
+
+Route::get('/login', function () {
+    return 'Login';
+})->name('site.login');
+
+Route::prefix('/app')->group(function () {
+    Route::get('/clientes', function () {
+        return 'clientes';
+    })->name('app.clientes');
+
+    Route::get('/fornecedores', function () {
+        return 'fornecedores';
+    })->name('app.fornecedores');
+
+    Route::get('/produtos', function () {
+        return 'produtos';
+    })->name('app.produtos');
+});
+

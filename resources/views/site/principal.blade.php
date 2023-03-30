@@ -20,10 +20,10 @@
 
     <ul>
         <li>
-            <a href="sobre"> Sobre Nós </a>
+            <a href="{{ route('site.sobre') }}"> Sobre Nós </a>
         </li>
         <li>
-            Contato
+            <a href="/contato"> Contato</a>
         </li>
     </ul>
     </body>
