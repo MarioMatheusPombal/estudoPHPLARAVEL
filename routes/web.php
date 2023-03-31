@@ -59,3 +59,6 @@ Route::prefix('/app')->group(function () {
     })->name('app.produtos');
 });
 
+Route::get('/teste/{p1}/{p2}', [App\Http\Controllers\TesteController::class, 'teste'])->name('site.teste')
+    ->where('p1', '[0-9]+')
+    ->where('p2', '[0-9]+');
