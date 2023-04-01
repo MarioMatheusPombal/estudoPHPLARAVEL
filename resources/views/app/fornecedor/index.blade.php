@@ -30,7 +30,7 @@
 {{--                        <p> BELO HORIZONTE</p>--}}
 {{--                        @break--}}
 {{--                    @default--}}
-{{--                        <p> DDD NÃO CADASTRADO</p>--}}
+{{--                        <p> DDD NÃO IDENTIFICADO</p>--}}
 {{--                @endswitch--}}
                 <p> CONTATO: {{ $fornecedor['telefone'] ?? 'Dado não cadastrado' }}</p>
                 <hr>
