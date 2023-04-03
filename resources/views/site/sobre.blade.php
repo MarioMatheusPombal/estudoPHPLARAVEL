@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <title>Super Gestão - Sobre Nós</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-</head>
+@extends('site.layouts.basico')
 
-<body>
+@section('titulo', 'Sobre Nós')
+@section('navbar')
 <div class="topo">
 
     <div class="logo">
@@ -21,7 +16,9 @@
         </ul>
     </div>
 </div>
+@endsection
 
+@section('conteudo')
 <div class="conteudo-pagina">
     <div class="titulo-pagina">
         <h1>Olá, eu sou o Super Gestão</h1>
@@ -52,5 +49,4 @@
         <img src="{{ asset('img/mapa.png')}}">
     </div>
 </div>
-</body>
-</html>
+@endsection
