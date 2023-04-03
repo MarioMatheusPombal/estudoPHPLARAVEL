@@ -21,9 +21,11 @@ Route::get('/', [App\Http\Controllers\PrincipalController::class, 'principal'])-
 
 Route::get('/sobre', [App\Http\Controllers\SobreController::class, 'sobre'])->name('site.sobre');
 
-Route::get('/contato', function () {
+Route::get('/contato', [App\Http\Controllers\ContatoController::class, 'contato'])->name('site.contato');
+
+Route::get('/teste', function () {
     return redirect()->route('site.sobre');
-})->name('site.contato');
+})->name('site.teste');
 
 //Route::redirect('/contato', '/sobre');
 
